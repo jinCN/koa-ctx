@@ -1,0 +1,44 @@
+{
+  "name": "koa-ctx",
+  "version": "1.0.3",
+  "description": "koa context usint AsyncLocalStorage",
+  "main": "index.js",
+  "engines": {
+    "node": ">=6"
+  },
+  "author": "mr_jin <liang.jr@foxmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jinCN/cb"
+  },
+  "keywords": [
+    "koa",
+    "ctx",
+    "AsyncLocalStorage"
+  ],
+  "bugs": {
+    "url": "https://github.com/jinCN/cb/issues"
+  },
+  "homepage": "https://github.com/jinCN/cb#readme",
+  "scripts": {
+    "lint": "standard --fix | snazzy"
+  },
+  "devDependencies": {
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "snazzy": "^8.0.0",
+    "standard": "^14.3.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "standard --fix",
+      "git add"
+    ]
+  }
+}
