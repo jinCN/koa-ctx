@@ -4,7 +4,7 @@ const uses = []
 
 async function ctxMiddleware (ctx, next) {
   const store = { ctx }
-  asyncLocalStorage.run(store, async () => {
+  await asyncLocalStorage.run(store, async () => {
     for (const use of uses) {
       const ret = use()
       if (ret instanceof Promise) {
@@ -47,6 +47,10 @@ for (const item of toDefine) {
     return Reflect[item](...args)
   }
 }
-const context = new Proxy({}, handler)
+handler.apply = function (target, thisArg, argArray) {
+  const store = asyncLocalStorage.getStore()
+  return store
+}
+const context = new Proxy(() => {}, handler)
 
 module.exports = { ctxMiddleware, context }

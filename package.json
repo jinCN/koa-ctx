@@ -1,6 +1,6 @@
 {
   "name": "koa-ctx",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "koa context usint AsyncLocalStorage",
   "main": "index.js",
   "engines": {
@@ -40,5 +40,6 @@
       "standard --fix",
       "git add"
     ]
-  }
+  },
+  "dependencies": {}
 }
